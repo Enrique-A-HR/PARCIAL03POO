@@ -1,63 +1,91 @@
-import express, { Express, Request, Response } from 'express';
-import { getConnectionPool, connectDatabase } from './database';
+import express, { Application, Request, Response, NextFunction } from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { Database } from "./config/database";
+import apiRoutes from "./routes/api";
 
-const app: Express = express();
-const PORT: number = process.env.PORT ? parseInt(process.env.PORT) : 3000;
+dotenv.config();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+class Server {
+  private app: Application;
+  private port: string | number;
 
-app.get('/', (req: Request, res: Response) => {
-  res.json({
-    message: 'API levantada correctamente',
-    status: 'online',
-    timestamp: new Date().toISOString()
-  });
-});
+  constructor() {
+    this.app = express();
+    this.port = process.env.PORT || 3000;
 
-app.get('/api/test', async (req: Request, res: Response) => {
-  try {
-    const connectionPool = getConnectionPool();
-    const result = await connectionPool.request().query('SELECT @@VERSION AS version');
-    res.json({
-      success: true,
-      data: result.recordset,
-      message: 'Conexión a base de datos exitosa'
-    });
-  } catch (error) {
-    console.error('Error en consulta:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Error al consultar la base de datos'
-    });
+    this.init();
   }
-});
 
-app.use((err: any, req: Request, res: Response) => {
-  console.error('Error:', err);
-  res.status(500).json({
-    success: false,
-    error: 'Error interno del servidor'
-  });
-});
+  private async init(): Promise<void> {
+    await Database.connect();
+    this.middlewares();
+    this.routes();
 
-async function startServer(): Promise<void> {
-  try {
-    await connectDatabase();
-    
-    app.listen(PORT, () => {
-      console.log(`\n🚀 Servidor ejecutándose en http://localhost:${PORT}`);
-      console.log(`📊 Puerto: ${PORT}`);
+    this.errorHandling();
+    this.listen();
+  }
+
+  private middlewares(): void {
+    this.app.use(cors());
+    this.app.use(express.json());
+  }
+
+  private routes(): void {
+    this.app.use("/api", apiRoutes);
+  }
+
+  private errorHandling(): void {
+    this.app.use(
+      (err: any, req: Request, res: Response, next: NextFunction) => {
+        console.error(
+          "❌ [Error detectado en el servidor]:",
+          err.message || err,
+        );
+
+        if (err.name === "ValidationError") {
+          const errorMessages = Object.values(err.errors).map(
+            (element: any) => element.message,
+          );
+          res.status(400).json({
+            status: "Error",
+            message: "Los datos enviados no cumplen con las reglas del modelo.",
+            errors: errorMessages,
+          });
+          return;
+        }
+
+        if (err.name === "CastError") {
+          res.status(400).json({
+            status: "Error",
+            message: `El valor asignado a la propiedad [${err.path}] es inválido o tiene un formato incorrecto.`,
+          });
+          return;
+        }
+
+        if (err.code === 11000) {
+          const field = Object.keys(err.keyValue || {});
+          res.status(400).json({
+            status: "Error",
+            message: `El registro para el campo [${field}] ya existe y debe ser único.`,
+          });
+          return;
+        }
+
+        res.status(500).json({
+          status: "Fatal",
+          message: "Ocurrió un error interno en el servidor local.",
+          error: err.message || err,
+        });
+      },
+    );
+  }
+  private listen(): void {
+    this.app.listen(this.port, () => {
+      console.log(
+        `🚀 [Server] Servidor corriendo localmente en: http://localhost:${this.port}`,
+      );
     });
-  } catch (error) {
-    console.error('Error iniciando servidor:', error);
-    process.exit(1);
   }
 }
-
-process.on('SIGINT', async () => {
-  console.log('\n⏹ Cerrando servidor...');
-  process.exit(0);
-});
-
-startServer();
+new Server();
