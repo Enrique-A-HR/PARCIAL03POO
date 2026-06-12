@@ -1,0 +1,247 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import "../css/main.css";
+import dibujoThink from "../assets/torogozthink.png";
+import dibujoLearned from "../assets/torogozteaching.png";
+---
+
+<Layout title="4.1 Ubiquemos los números en la recta numérica">
+  <div
+    class="w-full max-w-3xl bg-white border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm space-y-10"
+  >
+    <header class="border-b border-slate-100 pb-4">
+      <h1 class="text-2xl font-bold text-sky-600 flex items-center gap-2">
+        <span
+          class="bg-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-md font-mono"
+          >4.1</span
+        >
+        Ubiquemos los números en la recta numérica
+      </h1>
+      <p class="text-slate-500 text-sm mt-2">
+        ¡Vamos a aprender cómo se organizan los números de forma ordenada!
+      </p>
+    </header>
+
+    <section
+      class="flex flex-col md:flex-row gap-4 md:gap-6 items-center bg-slate-50/60 p-6 rounded-2xl border border-slate-100"
+    >
+      <div class="flex justify-center shrink-0">
+        <Image
+          src={dibujoThink}
+          alt="Torogoz pensando la solución"
+          class="w-36 h-auto object-contain drop-shadow-sm select-none"
+        />
+      </div>
+
+      <div class="flex-1 space-y-3">
+        <h2
+          class="text-lg font-bold text-slate-800 flex items-center gap-1.5 flex-wrap"
+        >
+          <span>🔍</span> ¡Hola, <span
+            id="student-name-welcome"
+            class="text-sky-600 font-extrabold capitalize"></span>! Analiza con
+          atención
+        </h2>
+        <p class="text-slate-600 text-sm leading-relaxed">
+          Imagina que tenemos una línea y colocamos unos números seguidos: <strong
+            class="text-slate-800">194, 195, 196 y 197</strong
+          >. Si contamos de izquierda a derecha, ¿cómo van cambiando? ¡Exacto,
+          van aumentando de <strong class="text-sky-600">1 en 1</strong>!
+        </p>
+        <p class="text-slate-600 text-sm">
+          Presiona los botones de abajo para ver cómo agregamos más números a la
+          recta usando esta regla.
+        </p>
+      </div>
+    </section>
+
+    <section class="space-y-6 pt-4">
+      <h3 class="text-base font-bold text-slate-800">
+        📐 Construye tu recta numérica:
+      </h3>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div
+          class="relative w-full flex justify-between items-center py-8 px-4"
+        >
+          <div
+            class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"
+          >
+          </div>
+
+          {
+            ["194", "195", "196", "197"].map((num) => (
+              <div class="flex flex-col items-center relative z-10 w-12">
+                <div class="w-0.5 h-3 bg-slate-400 mb-2" />
+                <span class="text-xs font-mono text-slate-600 font-semibold bg-white px-1">
+                  {num}
+                </span>
+              </div>
+            ))
+          }
+
+          <div
+            id="slot-198"
+            class="flex flex-col items-center relative z-10 w-12 opacity-0 scale-95 transition-all duration-300"
+          >
+            <div class="w-0.5 h-3 bg-indigo-500 mb-2"></div>
+            <span
+              class="text-xs font-mono font-bold text-indigo-600 bg-indigo-50 px-1.5 py-0.5 rounded border border-indigo-200"
+              >198</span
+            >
+            <span
+              class="absolute -top-4 -left-6 text-indigo-400 text-xs font-bold animate-pulse"
+              >+1 ➔</span
+            >
+          </div>
+
+          <div
+            id="slot-199"
+            class="flex flex-col items-center relative z-10 w-12 opacity-0 scale-95 transition-all duration-300"
+          >
+            <div class="w-0.5 h-3 bg-emerald-500 mb-2"></div>
+            <span
+              class="text-xs font-mono font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200"
+              >199</span
+            >
+            <span
+              class="absolute -top-4 -left-6 text-emerald-400 text-xs font-bold animate-pulse"
+              >+1 ➔</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-3">
+        <button
+          id="btn-add-198"
+          class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5"
+        >
+          ➕ Dar un salto (+1)
+        </button>
+        <button
+          id="btn-add-199"
+          class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-1.5 hidden"
+        >
+          ➕ Dar otro salto (+1)
+        </button>
+        <button
+          id="btn-reiniciar-recta"
+          class="bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-medium px-4 py-2.5 rounded-xl transition-all border border-slate-200 hidden"
+        >
+          🔄 Reiniciar recta
+        </button>
+      </div>
+    </section>
+
+    <div
+      id="bloque-comprende"
+      class="hidden opacity-0 transform translate-y-2 transition-all duration-500"
+    >
+      <section
+        class="bg-amber-50/70 border border-amber-100 rounded-xl p-5 md:p-6 flex flex-col sm:flex-row gap-4 items-center sm:items-start"
+      >
+        <div class="flex justify-center shrink-0">
+          <Image
+            src={dibujoLearned}
+            alt="Torogoz comprendiendo la regla"
+            class="w-20 h-auto object-contain drop-shadow-sm select-none"
+          />
+        </div>
+
+        <div class="flex-1 space-y-1 text-center sm:text-left">
+          <h4
+            class="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center justify-center sm:justify-start gap-1.5"
+          >
+            <span>📌</span> Comprende
+          </h4>
+          <p class="text-slate-700 text-sm leading-relaxed">
+            Para ubicar números en la recta, primero medimos la distancia
+            contando de cuánto en cuánto avanzan las marcas. Hacia la derecha,
+            los números siempre van en aumento de forma ordenada.
+          </p>
+        </div>
+      </section>
+    </div>
+    <div class="text-center pt-8">
+      <a
+        href="./ejercicio-practica"
+        class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95"
+      >
+        ✍️ ¡Estoy listo para resolver los ejercicios!
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const slot198 = document.getElementById("slot-198");
+  const slot199 = document.getElementById("slot-199");
+
+  const btn198 = document.getElementById("btn-add-198");
+  const btn199 = document.getElementById("btn-add-199");
+  const btnReiniciar = document.getElementById("btn-reiniciar-recta");
+
+  const bloqueComprende = document.getElementById("bloque-comprende");
+  const welcomeText = document.getElementById("student-name-welcome");
+
+  const nombreGuardado = sessionStorage.getItem("student_name");
+  if (welcomeText) {
+    welcomeText.textContent = nombreGuardado ? nombreGuardado : "estudiante";
+  }
+
+  btn198?.addEventListener("click", () => {
+    if (slot198 && btn198 && btn199 && btnReiniciar) {
+      slot198.classList.remove("opacity-0", "scale-95");
+      slot198.classList.add("opacity-100", "scale-100");
+
+      btn198.classList.add("hidden");
+      btn199.classList.remove("hidden");
+      btnReiniciar.classList.remove("hidden");
+    }
+  });
+
+  btn199?.addEventListener("click", () => {
+    if (slot199 && btn199 && bloqueComprende) {
+      slot199.classList.remove("opacity-0", "scale-95");
+      slot199.classList.add("opacity-100", "scale-100");
+
+      btn199.classList.add("hidden");
+
+      bloqueComprende.classList.remove("hidden");
+      setTimeout(() => {
+        bloqueComprende.classList.remove("opacity-0", "translate-y-2");
+        bloqueComprende.classList.add("opacity-100", "translate-y-0");
+      }, 50);
+
+      bloqueComprende.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  });
+
+  btnReiniciar?.addEventListener("click", () => {
+    if (
+      slot198 &&
+      slot199 &&
+      btn198 &&
+      btn199 &&
+      btnReiniciar &&
+      bloqueComprende
+    ) {
+      slot198.classList.remove("opacity-100", "scale-100");
+      slot198.classList.add("opacity-0", "scale-95");
+
+      slot199.classList.remove("opacity-100", "scale-100");
+      slot199.classList.add("opacity-0", "scale-95");
+
+      bloqueComprende.classList.remove("opacity-100", "translate-y-0");
+      bloqueComprende.classList.add("hidden", "opacity-0", "translate-y-2");
+
+      btn198.classList.remove("hidden");
+      btn199.classList.add("hidden");
+      btnReiniciar.classList.add("hidden");
+    }
+  });
+</script>

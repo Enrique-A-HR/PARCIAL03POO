@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import ImagenComprende from "../assets/torogozteaching.png";
+---
+
+<Layout title="4.2 Números hacia la izquierda">
+  <div
+    class="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm space-y-8"
+  >
+    <!-- Encabezado -->
+    <header class="space-y-1">
+      <h2 class="text-xs font-bold text-sky-600 uppercase tracking-widest">
+        Lección 4.2
+      </h2>
+      <h1 class="text-2xl font-bold text-slate-800">
+        Continuemos ubicando números en la recta numérica
+      </h1>
+    </header>
+
+    <section class="bg-sky-50 border border-sky-100 rounded-xl p-6">
+      <h3 class="text-sm font-bold text-sky-800 uppercase tracking-wide mb-3">
+        Comprende
+      </h3>
+
+      <div class="flex flex-col md:flex-row gap-6 items-center">
+        <!-- Contenedor de la Imagen (Izquierda) -->
+        <div
+          class="w-40 h-40 flex items-center justify-center p-2"
+        >
+          <Image
+            src={ImagenComprende}
+            alt="Concepto"
+            class="w-full h-full object-contain"
+          />
+        </div>
+
+        <!-- Contenedor del Texto (Derecha) -->
+        <p class="text-sky-900 leading-relaxed flex-1">
+          En una recta numérica, los números también pueden avanzar hacia la
+          izquierda. Cuando esto ocurre, los números <strong
+            >disminuyen de 1 en 1</strong
+          >. Esto es útil para identificar el número que se encuentra justo
+          antes de uno dado.
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección de Analiza/Ejemplo -->
+    <section class="space-y-6">
+      <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wide">
+        Analiza el ejemplo
+      </h3>
+
+      <div
+        class="bg-slate-50 border border-slate-100 rounded-xl p-6 overflow-x-auto"
+      >
+        <p class="text-sm text-slate-600 mb-6 text-center">
+          ¿Qué número falta antes del 210?
+        </p>
+
+        <div class="flex justify-center items-center gap-4">
+          <div
+            class="w-14 h-10 border-2 border-slate-300 rounded-lg bg-white flex items-center justify-center font-mono font-bold text-slate-400"
+          >
+            ?
+          </div>
+          <div class="flex items-center gap-6 border-b-2 border-slate-300 pb-2">
+            <span class="font-mono font-bold text-slate-600">210</span>
+            <span class="font-mono font-bold text-slate-600">211</span>
+            <span class="font-mono font-bold text-slate-600">212</span>
+            <span class="font-mono font-bold text-slate-600">213</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Solución -->
+    <section class="space-y-4">
+      <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wide">
+        Solución
+      </h3>
+      <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-6">
+        <p class="text-slate-700 mb-4">
+          Al contar hacia atrás desde el 210, restamos 1:
+        </p>
+        <div class="flex justify-center items-center gap-4">
+          <span
+            class="font-mono font-bold text-amber-700 bg-amber-100 px-3 py-2 rounded-lg text-lg"
+            >209</span
+          >
+          <span class="text-slate-400">→</span>
+          <span class="font-mono font-bold text-slate-600">210</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación -->
+    <footer class="flex justify-between pt-4 border-t border-slate-100">
+      <a
+        href="/keyboard_practice"
+        class="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95"
+      >
+        Siguiente: Práctica →
+      </a>
+    </footer>
+  </div>
+</Layout>

@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import '../css/main.css';
+import dibujoBadResponse from '../assets/focafrustate.png';
+import dibujoSuccess from '../assets/torogozlearned.png';
+---
+
+<Layout title="Práctica: Ubiquemos los números en la recta numérica">
+  <div class="w-full max-w-3xl bg-white border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm space-y-10">
+    
+    <header class="border-b border-slate-100 pb-4 flex justify-between items-center flex-wrap gap-4">
+      <div class="space-y-1">
+        <div class="flex items-center gap-3">
+          <a href="/first_content" class="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-sky-600 bg-slate-50 hover:bg-sky-50 border border-slate-200/60 hover:border-sky-200 px-2.5 py-1.5 rounded-lg transition-all active:scale-95">
+            <span>←</span> Volver a la lección
+          </a>
+        </div>
+        <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2 pt-2">
+          <span class="bg-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-md font-mono">Paso 2</span>
+          ¡Es hora de practicar!
+        </h1>
+        <p class="text-slate-500 text-xs">Resuelve el reto utilizando lo que aprendiste con el Torogoz.</p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono px-3 py-1 rounded-lg self-end sm:self-center">
+        Progreso: 1 / 1
+      </div>
+    </header>
+
+    <section class="space-y-6">
+      <div class="bg-slate-50/60 p-4 rounded-xl border border-slate-100 flex items-center gap-3">
+        <span class="text-lg">🎯</span>
+        <p class="text-slate-700 text-sm font-medium">
+          ¿Qué número debe ir en la casilla del signo de interrogación <span class="text-sky-600 font-bold">?</span> en la recta?
+        </p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
+        <div class="relative w-full flex justify-between items-center py-8 px-4">
+          <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
+          
+          <div class="flex flex-col items-center relative z-10 w-12">
+            <div class="w-0.5 h-3 bg-slate-400 mb-2"></div>
+            <span class="text-xs font-mono text-slate-600 font-semibold bg-white px-1">508</span>
+          </div>
+
+          <div class="flex flex-col items-center relative z-10 w-12">
+            <div class="w-0.5 h-3 bg-slate-400 mb-2"></div>
+            <span class="text-xs font-mono text-slate-600 font-semibold bg-white px-1">509</span>
+          </div>
+
+          <div class="flex flex-col items-center relative z-10 w-12">
+            <div class="w-0.5 h-3 bg-slate-400 mb-2"></div>
+            <span class="text-xs font-mono text-slate-600 font-semibold bg-white px-1">510</span>
+          </div>
+
+          <div class="flex flex-col items-center relative z-10 w-12">
+            <div class="w-0.5 h-3 bg-sky-500 mb-2"></div>
+            <span class="text-xs font-mono font-bold text-sky-600 bg-sky-50 px-2 py-0.5 rounded border border-sky-200 animate-pulse">?</span>
+          </div>
+
+          <div class="flex flex-col items-center relative z-10 w-12">
+            <div class="w-0.5 h-3 bg-slate-400 mb-2"></div>
+            <span class="text-xs font-mono text-slate-600 font-semibold bg-white px-1">512</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="space-y-4">
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider text-center">Selecciona la respuesta correcta:</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-md mx-auto">
+          <button data-option="501" class="option-btn bg-white hover:bg-slate-50 text-slate-700 font-mono font-bold py-3.5 px-4 rounded-xl border border-slate-200 shadow-sm transition-all active:scale-95 text-sm">
+            501
+          </button>
+          <button data-option="511" class="option-btn bg-white hover:bg-slate-50 text-slate-700 font-mono font-bold py-3.5 px-4 rounded-xl border border-slate-200 shadow-sm transition-all active:scale-95 text-sm">
+            511
+          </button>
+          <button data-option="513" class="option-btn bg-white hover:bg-slate-50 text-slate-700 font-mono font-bold py-3.5 px-4 rounded-xl border border-slate-200 shadow-sm transition-all active:scale-95 text-sm">
+            513
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center pt-2">
+        <button id="btn-submit-exercise" disabled class="inline-flex items-center gap-2 bg-slate-300 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all shadow-sm cursor-not-allowed">
+          📝 Terminar ejercicio y continuar
+        </button>
+      </div>
+    </section>
+
+    <div id="feedback-box" class="hidden opacity-0 transform translate-y-2 transition-all duration-500">
+      <section id="feedback-card" class="rounded-xl p-5 flex flex-col sm:flex-row gap-4 items-center sm:items-start border">
+        
+        <div class="flex justify-center shrink-0 relative w-20 h-20">
+          <Image 
+            id="img-torogoz-think"
+            src={dibujoBadResponse} 
+            alt="Torogoz pensando" 
+            class="absolute inset-0 w-full h-full object-contain drop-shadow-sm select-none transition-opacity duration-200"
+          />
+          <Image 
+            id="img-torogoz-success"
+            src={dibujoSuccess} 
+            alt="Torogoz celebrando" 
+            class="absolute inset-0 w-full h-full object-contain drop-shadow-sm select-none transition-opacity duration-200 opacity-0"
+          />
+        </div>
+
+        <div class="flex-1 space-y-2 text-center sm:text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 id="feedback-title" class="text-sm font-bold uppercase tracking-wider"></h4>
+            <span id="score-badge" class="inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md self-center sm:self-start"></span>
+          </div>
+          <p id="feedback-text" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+      </section>
+
+      <div id="action-zone" class="text-center pt-8">
+        <button id="btn-retry" class="inline-flex items-center gap-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 hidden">
+          🔄 Volver a intentar
+        </button>
+        <a id="btn-continue" href="/ejercicio-practica2" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 hidden">
+          🚀 Continuar lección
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const botones = document.querySelectorAll('.option-btn');
+  const btnSubmit = document.getElementById('btn-submit-exercise') as HTMLButtonElement;
+  const btnRetry = document.getElementById('btn-retry');
+  const btnContinue = document.getElementById('btn-continue');
+  
+  const feedbackBox = document.getElementById('feedback-box');
+  const feedbackCard = document.getElementById('feedback-card');
+  const feedbackTitle = document.getElementById('feedback-title');
+  const feedbackText = document.getElementById('feedback-text');
+  const scoreBadge = document.getElementById('score-badge');
+  
+  const imgThink = document.getElementById('img-torogoz-think');
+  const imgSuccess = document.getElementById('img-torogoz-success');
+
+  let seleccionActual: string | null = null;
+  let botonSeleccionado: HTMLButtonElement | null = null;
+
+  const nombreEstudiante = sessionStorage.getItem('student_name') || 'estudiante';
+  const usuarioId = sessionStorage.getItem('random_user_id') || 'anonimo';
+
+  const displayNameElem = document.getElementById('student-display-name');
+  if (displayNameElem) {
+    displayNameElem.textContent = nombreEstudiante;
+  }
+
+  async function enviarNotaAPI(notaObtenida: number) {
+    try {
+      const response = await fetch('http://localhost:3000/api/grades/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userId: nombreEstudiante,
+          topic: '4.1 Recta Numerica',
+          score: notaObtenida
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error al sincronizar la calificacion:', error);
+    }
+  }
+
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      if (btnContinue && !btnContinue.classList.contains('hidden')) return;
+
+      botones.forEach(b => b.classList.remove('ring-2', 'ring-sky-500', 'bg-sky-50/50', 'border-sky-300', 'text-sky-700'));
+      
+      boton.classList.add('ring-2', 'ring-sky-500', 'bg-sky-50/50', 'border-sky-300', 'text-sky-700');
+      
+      seleccionActual = boton.getAttribute('data-option');
+      botonSeleccionado = boton as HTMLButtonElement;
+
+      if (btnSubmit) {
+        btnSubmit.disabled = false;
+        btnSubmit.className = "inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer";
+      }
+    });
+  });
+
+  btnSubmit?.addEventListener('click', () => {
+    if (!seleccionActual || !feedbackBox || !feedbackCard || !feedbackTitle || !feedbackText || !scoreBadge || !btnRetry || !btnContinue) return;
+
+    feedbackBox.classList.remove('hidden');
+    setTimeout(() => {
+      feedbackBox.classList.remove('opacity-0', 'translate-y-2');
+      feedbackBox.classList.add('opacity-100', 'translate-y-0');
+    }, 5);
+
+    botones.forEach(b => b.classList.remove('ring-2', 'ring-sky-500', 'bg-sky-50/50', 'border-sky-300', 'text-sky-700'));
+
+    if (seleccionActual === '511') {
+      if (botonSeleccionado) {
+        botonSeleccionado.classList.add('ring-2', 'ring-emerald-500', 'bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+      }
+      
+      if (imgThink && imgSuccess) {
+        imgThink.classList.add('opacity-0');
+        imgSuccess.classList.remove('opacity-0');
+        imgSuccess.classList.add('opacity-100');
+      }
+
+      feedbackCard.className = "bg-emerald-50/70 border-emerald-100 rounded-xl p-5 flex flex-col sm:flex-row gap-4 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-emerald-800";
+      feedbackTitle.textContent = `¡Excelente, ${nombreEstudiante}! ✨`;
+      feedbackText.textContent = "¡Lo lograste! Si contamos de uno en uno hacia la derecha, después de 510 sigue exactamente el número 511.";
+      
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200";
+      scoreBadge.textContent = "Nota: 10/10";
+
+      btnRetry.classList.add('hidden');
+      btnContinue.classList.remove('hidden');
+      btnSubmit.classList.add('hidden');
+      
+      botones.forEach(b => (b as HTMLButtonElement).disabled = true);
+
+      enviarNotaAPI(10);
+    } else {
+      if (botonSeleccionado) {
+        botonSeleccionado.classList.add('ring-2', 'ring-rose-500', 'bg-rose-50', 'text-rose-700', 'border-rose-200');
+      }
+
+      if (imgThink && imgSuccess) {
+        imgThink.classList.remove('opacity-0');
+        imgThink.classList.add('opacity-100');
+        imgSuccess.classList.remove('opacity-100');
+        imgSuccess.classList.add('opacity-0');
+        imgThink.style.filter = "grayscale(40%) contrast(90%)";
+      }
+
+      feedbackCard.className = "bg-rose-50/70 border-rose-100 rounded-xl p-5 flex flex-col sm:flex-row gap-4 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-rose-800";
+      feedbackTitle.textContent = "¡Sigue intentando! 🤔";
+      feedbackText.textContent = "Recuerda que la recta va avanzando de 1 en 1 hacia la derecha. Mira bien el número que está justo antes del signo de pregunta.";
+      
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-rose-100 text-rose-800 border border-rose-200";
+      scoreBadge.textContent = "Nota: 0/10";
+
+      btnContinue.classList.add('hidden');
+      btnRetry.classList.remove('hidden');
+      btnSubmit.classList.add('hidden');
+
+      enviarNotaAPI(0);
+    }
+
+    feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
+
+  btnRetry?.addEventListener('click', () => {
+    if (!feedbackBox || !btnSubmit || !btnRetry) return;
+
+    seleccionActual = null;
+    botonSeleccionado = null;
+
+    botones.forEach(b => {
+      const btn = b as HTMLButtonElement;
+      btn.disabled = false;
+      btn.classList.remove('ring-2', 'ring-rose-500', 'bg-rose-50', 'text-rose-700', 'border-rose-200', 'ring-emerald-500', 'bg-emerald-50', 'text-emerald-700', 'border-emerald-200');
+    });
+
+    if (imgThink && imgSuccess) {
+      imgThink.style.filter = "none";
+      imgThink.classList.remove('opacity-0');
+      imgThink.classList.add('opacity-100');
+      imgSuccess.classList.remove('opacity-100');
+      imgSuccess.classList.add('opacity-0');
+    }
+
+    feedbackBox.classList.add('opacity-0', 'translate-y-2');
+    setTimeout(() => {
+      feedbackBox.classList.add('hidden');
+    }, 300);
+
+    btnSubmit.classList.remove('hidden');
+    btnSubmit.disabled = true;
+    btnSubmit.className = "inline-flex items-center gap-2 bg-slate-300 text-white text-xs font-bold px-6 py-3 rounded-xl transition-all shadow-sm cursor-not-allowed";
+    btnRetry.classList.add('hidden');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
