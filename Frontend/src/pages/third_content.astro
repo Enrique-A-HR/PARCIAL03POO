@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import '../css/main.css';
+import ImagenComprende from '../assets/torogozteaching.png'; 
+---
+
+<Layout title="4.3 Ubiquemos números que aumentan en la recta">
+  <div class="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm space-y-8">
+    
+    <!-- Encabezado -->
+    <header class="space-y-1">
+      <h2 class="text-xs font-bold text-sky-600 uppercase tracking-widest">Lección 4.3</h2>
+      <h1 class="text-2xl font-bold text-slate-800">Ubiquemos números que aumentan</h1>
+    </header>
+
+    <!-- Sección de Teoría (Comprende) - Imagen a la Izquierda -->
+    <section class="bg-sky-50 border border-sky-100 rounded-xl p-6">
+      <h3 class="text-sm font-bold text-sky-800 uppercase tracking-wide mb-3">Comprende</h3>
+      
+      <div class="flex flex-col md:flex-row gap-6 items-center">
+        <!-- Contenedor de la Imagen (Izquierda) -->
+        <div class="shrink-0">
+          <div class="w-34 h-34 flex items-center justify-center p-2">
+            <Image 
+              src={ImagenComprende} 
+              alt="Mascota explicando" 
+              class="w-full h-full object-contain" 
+            />
+          </div>
+        </div>
+
+        <!-- Contenedor del Texto (Derecha) -->
+        <p class="text-sky-900 leading-relaxed flex-1">
+          Al ubicar números en la recta numérica, es muy importante identificar la escala. Los números también pueden aumentar <a class="font-extrabold">de 10 en 10</a> o <a class="font-extrabold">de 5 en 5 hacia la derecha</a>. ¡Siempre cuenta y verifica la distancia entre los primeros números!
+        </p>
+      </div>
+    </section>
+
+    <!-- Analiza / Ejemplo base (Aumento de 10 en 10) -->
+    <section class="space-y-4">
+      <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wide">Analiza</h3>
+      <p class="text-slate-600">Observa el número que falta en la recta numérica:</p>
+      
+      <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 overflow-x-auto">
+        <div class="flex justify-center items-center py-4">
+          <div class="flex items-center gap-6 border-b-2 border-slate-300 pb-2">
+            <span class="font-mono font-bold text-slate-400">90</span>
+            <span class="font-mono font-bold text-slate-400">100</span>
+            <span class="font-mono font-bold text-slate-400">110</span>
+            <span class="font-mono font-bold text-slate-400">120</span>
+            <div class="w-14 h-9 border-2 border-dashed border-sky-300 rounded bg-white flex items-center justify-center font-mono font-bold text-sky-600 text-sm">?</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solución -->
+    <section class="space-y-4">
+      <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wide">Solución</h3>
+      <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-6 space-y-3">
+        <p class="text-slate-700">Cuento los números y noto que <a class="font-extrabold">aumentan de 10 en 10</a>:</p>
+        <div class="flex justify-center items-center gap-4 py-2">
+          <span class="font-mono font-bold text-slate-500">120</span>
+          <span class="text-amber-500 font-bold font-mono">+ 10</span>
+          <span class="text-slate-400">→</span>
+          <span class="font-mono font-bold text-amber-700 bg-amber-100 px-3 py-1.5 rounded-lg text-base">130</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Especial: ¿Qué pasaría? (Aumento de 5 en 5) -->
+    <section class="border-2 border-purple-100 bg-purple-50/30 rounded-xl p-6 space-y-4">
+      <header class="flex items-center gap-2 text-purple-700">
+        <span class="bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-md font-bold font-mono">¿Qué pasaría?</span>
+        <p class="text-sm font-medium">¿Qué número falta si contamos de <a class="font-extrabold">5 en 5?</a></p>
+      </header>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 bg-white border border-purple-100/80 rounded-lg p-4">
+        <div class="flex items-center gap-4 font-mono text-sm">
+          <span class="text-slate-400">90</span>
+          <span class="text-slate-400">95</span>
+          <span class="text-slate-400">100</span>
+          <span class="text-slate-400">105</span>
+          <span class="text-purple-700 font-bold bg-purple-100 px-2.5 py-1 rounded">110</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navegación -->
+    <footer class="flex justify-between pt-4 border-t border-slate-100">
+      <!-- Apunta directamente a la siguiente página de práctica de teclado que vayas a crear -->
+      <a href="/ejercicios4.3" class="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+        Siguiente: Práctica →
+      </a>
+    </footer>
+
+  </div>
+</Layout>

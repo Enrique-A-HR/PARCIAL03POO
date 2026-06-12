@@ -1,0 +1,318 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import '../css/main.css';
+import dibujoPedagogico from '../assets/focaalegre.png';
+import dibujoSuccess from '../assets/torogozlearned.png';
+---
+
+<Layout title="Práctica 4.3: Selección de escalas en la recta">
+  <div class="w-full max-w-3xl bg-white border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm space-y-10">
+    
+    <!-- Encabezado -->
+    <header class="border-b border-slate-100 pb-4 flex justify-between items-center flex-wrap gap-4">
+      <div class="space-y-1">
+        <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+          <span class="bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-md font-mono">Reto de Selección</span>
+          Hola, <span id="student-display-name" class="text-sky-600">estudiante</span> ✨
+        </h1>
+        <p class="text-slate-500 text-xs">Descubre el patrón de la recta (de 5 en 5 o de 10 en 10) y elige la opción correcta.</p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono px-3 py-1 rounded-lg">
+        Ejercicios: 4 / 4
+      </div>
+    </header>
+
+    <!-- Contenedor del Juego -->
+    <div class="space-y-8">
+      
+      <!-- Ejercicio 1: Escala de 10 en 10 -->
+      <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-5" data-exercise="1" data-correct="230">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 1 (Aumenta de 10 en 10)</span>
+        
+        <!-- Recta Numérica -->
+        <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
+          <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">200</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">210</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">220</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-14 bg-white">
+            <div class="target-box w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-sky-50/30 flex items-center justify-center font-mono font-bold text-sky-600 text-xs shadow-inner">?</div>
+            <div class="w-0.5 h-2 bg-sky-400 mt-1"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">240</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+        </div>
+
+        <!-- Opciones de Botón -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="225">225</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="230">230</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="235">235</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="250">250</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 2: Escala de 5 en 5 -->
+      <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-5" data-exercise="2" data-correct="65">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 2 (Aumenta de 5 en 5)</span>
+        
+        <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
+          <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">45</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">50</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">55</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">60</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-14 bg-white">
+            <div class="target-box w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-sky-50/30 flex items-center justify-center font-mono font-bold text-sky-600 text-xs shadow-inner">?</div>
+            <div class="w-0.5 h-2 bg-sky-400 mt-1"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="61">61</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="65">65</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="70">70</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="75">75</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 3: Cruce de centena (De 10 en 10) -->
+      <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-5" data-exercise="3" data-correct="910">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 3 (Reto de Centena)</span>
+        
+        <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
+          <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">880</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">890</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">900</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-14 bg-white">
+            <div class="target-box w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-sky-50/30 flex items-center justify-center font-mono font-bold text-sky-600 text-xs shadow-inner">?</div>
+            <div class="w-0.5 h-2 bg-sky-400 mt-1"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">920</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="901">901</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="905">905</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="910">910</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="950">950</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 4: Incógnita al inicio (De 5 en 5) -->
+      <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-5" data-exercise="4" data-correct="145">
+        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 4 (Reto Avanzado)</span>
+        
+        <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
+          <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
+          <div class="flex flex-col items-center relative z-10 w-14 bg-white">
+            <div class="target-box w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-sky-50/30 flex items-center justify-center font-mono font-bold text-sky-600 text-xs shadow-inner">?</div>
+            <div class="w-0.5 h-2 bg-sky-400 mt-1"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">150</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">155</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">160</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white"><span class="text-xs font-mono text-slate-500 mb-1">165</span><div class="w-0.5 h-2 bg-slate-400"></div></div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="140">140</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="145">145</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="149">149</button>
+          <button class="option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm" data-value="151">151</button>
+        </div>
+      </div>
+
+      <!-- Botón de Envío -->
+      <div class="text-center pt-4">
+        <button id="btn-submit-practice" disabled class="inline-flex items-center gap-2 bg-slate-300 text-white text-xs font-bold px-8 py-3.5 rounded-xl transition-all shadow-sm cursor-not-allowed">
+          🚀 Enviar respuestas
+        </button>
+      </div>
+    </div>
+
+    <!-- Bloque de Feedback Dinámico -->
+    <div id="feedback-box" class="hidden opacity-0 transform translate-y-2 transition-all duration-500">
+      <section id="feedback-card" class="rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border">
+        
+        <div class="flex justify-center shrink-0 relative w-20 h-20">
+          <Image id="img-torogoz-think" src={dibujoPedagogico} alt="Torogoz pensando" class="absolute inset-0 w-full h-full object-contain drop-shadow-sm select-none transition-opacity duration-200" />
+          <Image id="img-torogoz-success" src={dibujoSuccess} alt="Torogoz celebrando" class="absolute inset-0 w-full h-full object-contain drop-shadow-sm select-none transition-opacity duration-200 opacity-0" />
+        </div>
+
+        <div class="flex-1 space-y-2 text-center sm:text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 id="feedback-title" class="text-sm font-bold uppercase tracking-wider"></h4>
+            <span id="score-badge" class="inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md"></span>
+          </div>
+          <p id="feedback-text" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+      </section>
+
+      <div class="text-center pt-8">
+        <a href="/fourth_content" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+          Regresar al inicio
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const blocks = document.querySelectorAll('[data-exercise]');
+  const btnSubmit = document.getElementById('btn-submit-practice') as HTMLButtonElement;
+  const feedbackBox = document.getElementById('feedback-box');
+  const feedbackCard = document.getElementById('feedback-card');
+  const feedbackTitle = document.getElementById('feedback-title');
+  const feedbackText = document.getElementById('feedback-text');
+  const scoreBadge = document.getElementById('score-badge');
+  
+  const imgThink = document.getElementById('img-torogoz-think');
+  const imgSuccess = document.getElementById('img-torogoz-success');
+  const displayNameElem = document.getElementById('student-display-name');
+
+  const nombreEstudiante = sessionStorage.getItem('student_name') || 'estudiante';
+  const elecciones: Record<string, string> = {};
+
+  if (displayNameElem) {
+    displayNameElem.textContent = nombreEstudiante;
+  }
+
+  // Manejo interactivo de clicks en las opciones
+  blocks.forEach(block => {
+    const exId = block.getAttribute('data-exercise')!;
+    const buttons = block.querySelectorAll('.option-btn');
+    const targetBox = block.querySelector('.target-box') as HTMLDivElement;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remover estado previo de todos los botones de este ejercicio
+        buttons.forEach(b => b.className = "option-btn p-3 bg-white border border-slate-200 rounded-xl font-mono font-bold text-slate-600 hover:border-sky-300 active:scale-95 transition-all text-sm");
+        
+        // Aplicar estado seleccionado al botón clickeado
+        btn.className = "option-btn p-3 bg-sky-50 border-2 border-sky-500 rounded-xl font-mono font-bold text-sky-700 active:scale-95 transition-all text-sm shadow-sm";
+        
+        const val = btn.getAttribute('data-value')!;
+        elecciones[exId] = val;
+        
+        if (targetBox) {
+          targetBox.textContent = val;
+          targetBox.className = "target-box w-14 h-8 border-2 border-sky-400 bg-sky-50 rounded-lg flex items-center justify-center font-mono font-bold text-sky-700 text-xs transition-all animate-pulse";
+          setTimeout(() => targetBox.classList.remove('animate-pulse'), 300);
+        }
+
+        verificarFormulario();
+      });
+    });
+  });
+
+  function verificarFormulario() {
+    const totalRespondidos = Object.keys(elecciones).length;
+    if (btnSubmit) {
+      if (totalRespondidos === 4) {
+        btnSubmit.disabled = false;
+        btnSubmit.className = "inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer";
+      } else {
+        btnSubmit.disabled = true;
+        btnSubmit.className = "inline-flex items-center gap-2 bg-slate-300 text-white text-xs font-bold px-8 py-3.5 rounded-xl transition-all shadow-sm cursor-not-allowed";
+      }
+    }
+  }
+
+  async function enviarNotaAPI(notaObtenida: number) {
+    try {
+      const response = await fetch('http://localhost:3000/api/grades/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: nombreEstudiante,
+          topic: '4.3 Práctica Selección Recta Aumenta',
+          score: notaObtenida
+        })
+      });
+      if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+    } catch (error) {
+      console.error('Error al sincronizar la calificacion:', error);
+    }
+  }
+
+  btnSubmit?.addEventListener('click', () => {
+    if (!feedbackBox || !feedbackCard || !feedbackTitle || !feedbackText || !scoreBadge) return;
+
+    let aciertos = 0;
+
+    blocks.forEach(block => {
+      const exId = block.getAttribute('data-exercise')!;
+      const correctVal = block.getAttribute('data-correct')!;
+      const buttons = block.querySelectorAll('.option-btn');
+      const targetBox = block.querySelector('.target-box') as HTMLDivElement;
+      
+      buttons.forEach(b => (b as HTMLButtonElement).disabled = true);
+
+      if (elecciones[exId] === correctVal) {
+        aciertos++;
+        if (targetBox) targetBox.className = "target-box w-14 h-8 border-2 border-emerald-500 bg-emerald-50 rounded-lg flex items-center justify-center font-mono font-bold text-emerald-700 text-xs transition-all";
+        
+        buttons.forEach(b => {
+          if (b.getAttribute('data-value') === correctVal) {
+            b.className = "option-btn p-3 bg-emerald-50 border-2 border-emerald-500 rounded-xl font-mono font-bold text-emerald-700 text-sm";
+          }
+        });
+      } else {
+        if (targetBox) targetBox.className = "target-box w-14 h-8 border-2 border-rose-500 bg-rose-50 rounded-lg flex items-center justify-center font-mono font-bold text-rose-700 text-xs transition-all";
+        
+        buttons.forEach(b => {
+          if (b.getAttribute('data-value') === elecciones[exId]) {
+            b.className = "option-btn p-3 bg-rose-50 border-2 border-rose-400 rounded-xl font-mono font-bold text-rose-700 text-sm";
+          }
+          if (b.getAttribute('data-value') === correctVal) {
+            b.className = "option-btn p-3 bg-white border-2 border-emerald-400 rounded-xl font-mono font-bold text-emerald-600 text-sm animate-bounce";
+          }
+        });
+      }
+    });
+
+    let notaFinal = (aciertos / 4) * 10;
+
+    feedbackBox.classList.remove('hidden');
+    setTimeout(() => {
+      feedbackBox.classList.remove('opacity-0', 'translate-y-2');
+      feedbackBox.classList.add('opacity-100', 'translate-y-0');
+    }, 5);
+
+    btnSubmit.classList.add('hidden');
+
+    if (notaFinal === 10) {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.add('opacity-0');
+        imgSuccess.classList.remove('opacity-0');
+        imgSuccess.classList.add('opacity-100');
+      }
+      feedbackCard.className = "bg-emerald-50/70 border-emerald-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-emerald-800";
+      feedbackTitle.textContent = `¡Excelente trabajo, ${nombreEstudiante}! 🏆`;
+      feedbackText.textContent = `¡Magnífico! Analizaste a la perfección los aumentos de 5 en 5 y de 10 en 10 en cada ejercicio.`;
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200";
+    } else {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.remove('opacity-0');
+        imgThink.classList.add('opacity-100');
+        imgSuccess.classList.add('opacity-0');
+        imgThink.style.filter = "grayscale(20%) contrast(95%)";
+      }
+      feedbackCard.className = "bg-amber-50/80 border-amber-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-amber-800";
+      feedbackTitle.textContent = "¡Buen intento!";
+      feedbackText.textContent = "Revisa los saltos de las rectas que fallaste. Observa si el número sube de 5 en 5 o de 10 en 10 y vuelve a intentarlo.";
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 border border-amber-200";
+    }
+
+    scoreBadge.textContent = `Nota: ${notaFinal}/10 (${aciertos}/4 aciertos)`;
+    enviarNotaAPI(notaFinal);
+    feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
+</script>

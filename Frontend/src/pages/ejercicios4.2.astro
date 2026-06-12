@@ -7,16 +7,17 @@ import dibujoPedagogico from '../assets/focaalegre.png';
 import dibujoSuccess from '../assets/torogozlearned.png';
 ---
 
-<Layout title="Práctica Avanzada: Completa la recta numérica">
+<Layout title="Práctica 4.2: Números hacia la izquierda">
   <div class="w-full max-w-3xl bg-white border border-slate-200/80 rounded-2xl p-6 md:p-10 shadow-sm space-y-10">
     
+    <!-- Encabezado -->
     <header class="border-b border-slate-100 pb-4 flex justify-between items-center flex-wrap gap-4">
       <div class="space-y-1">
         <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-          <span class="bg-amber-100 text-amber-700 text-xs px-2.5 py-1 rounded-md font-mono">Reto Final</span>
+          <span class="bg-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-md font-mono">Reto 4.2</span>
           Hola, <span id="student-display-name" class="text-sky-600">estudiante</span> ✨
         </h1>
-        <p class="text-slate-500 text-xs">Escribe el número que falta en cada recta numérica usando tu teclado.</p>
+        <p class="text-slate-500 text-xs">Escribe el número que falta a la izquierda (restando 1) en cada recta numérica.</p>
       </div>
       <div class="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono px-3 py-1 rounded-lg">
         Ejercicios: 4 / 4
@@ -25,114 +26,118 @@ import dibujoSuccess from '../assets/torogozlearned.png';
 
     <form id="practice-form" class="space-y-8" onsubmit="return false;">
       
+      <!-- Ejercicio 1 (El del libro: busca el anterior a 210) -->
       <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-4">
         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 1</span>
         <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
           <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
           
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">120</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">121</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">122</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
           <div class="flex flex-col items-center relative z-10 w-16 bg-white">
-            <input type="number" data-answer="123" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
+            <input type="number" data-answer="209" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
             <div class="w-0.5 h-2 bg-sky-500 mt-1"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">124</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">210</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">211</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">212</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">213</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
         </div>
       </div>
 
+      <!-- Ejercicio 2 (Busca el anterior a 435) -->
       <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-4">
         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 2</span>
         <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
           <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
           
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">345</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
           <div class="flex flex-col items-center relative z-10 w-16 bg-white">
-            <input type="number" data-answer="346" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
+            <input type="number" data-answer="434" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
             <div class="w-0.5 h-2 bg-sky-500 mt-1"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">347</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">435</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">348</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">436</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">349</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">437</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">438</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
         </div>
       </div>
 
+      <!-- Ejercicio 3 (Reto crítico: cambio de centena al contar hacia atrás) -->
       <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-4">
         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 3</span>
         <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
           <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
           
           <div class="flex flex-col items-center relative z-10 w-16 bg-white">
-            <input type="number" data-answer="599" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
+            <input type="number" data-answer="699" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
             <div class="w-0.5 h-2 bg-sky-500 mt-1"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">600</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">700</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">601</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">701</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">602</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">702</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">603</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">703</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
         </div>
       </div>
 
+      <!-- Ejercicio 4 (Inmtermedio: encontrar el número intermedio contando a la izquierda desde 920) -->
       <div class="bg-slate-50/50 border border-slate-200/60 rounded-xl p-5 space-y-4">
         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 4</span>
         <div class="relative w-full flex justify-between items-center py-6 px-4 bg-white border border-slate-100 rounded-lg shadow-sm">
           <div class="absolute left-0 right-0 top-1/2 h-0.5 bg-slate-300 -translate-y-1/2"></div>
           
           <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">897</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">898</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">899</span>
-            <div class="w-0.5 h-2 bg-slate-400"></div>
-          </div>
-          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
-            <span class="text-xs font-mono text-slate-500 mb-1">900</span>
+            <span class="text-xs font-mono text-slate-500 mb-1">918</span>
             <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
           <div class="flex flex-col items-center relative z-10 w-16 bg-white">
-            <input type="number" data-answer="901" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
+            <input type="number" data-answer="919" required class="exercise-input w-16 text-center font-mono font-bold text-sm text-sky-700 bg-sky-50/50 border-2 border-sky-300 rounded-lg p-1 focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all" placeholder="?">
             <div class="w-0.5 h-2 bg-sky-500 mt-1"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">920</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">921</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
+          </div>
+          <div class="flex flex-col items-center relative z-10 w-12 bg-white">
+            <span class="text-xs font-mono text-slate-500 mb-1">922</span>
+            <div class="w-0.5 h-2 bg-slate-400"></div>
           </div>
         </div>
       </div>
@@ -144,6 +149,7 @@ import dibujoSuccess from '../assets/torogozlearned.png';
       </div>
     </form>
 
+    <!-- Caja de Feedback -->
     <div id="feedback-box" class="hidden opacity-0 transform translate-y-2 transition-all duration-500">
       <section id="feedback-card" class="rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border">
         
@@ -172,8 +178,8 @@ import dibujoSuccess from '../assets/torogozlearned.png';
       </section>
 
       <div class="text-center pt-8">
-        <a href="/second_content" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
-          Continuar a los ejercicios
+        <a href="/third_content" class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+          Regresar al inicio
           <span>→</span>
         </a>
       </div>
@@ -233,7 +239,7 @@ import dibujoSuccess from '../assets/torogozlearned.png';
         },
         body: JSON.stringify({
           userId: nombreEstudiante,
-          topic: '4.2 Practica Teclado Recta',
+          topic: '4.2 Práctica Teclado Recta Disminuye', // Cambiado para identificar este nuevo tema
           score: notaObtenida
         })
       });
@@ -290,7 +296,7 @@ import dibujoSuccess from '../assets/torogozlearned.png';
       feedbackCard.className = "bg-emerald-50/70 border-emerald-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
       feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-emerald-800";
       feedbackTitle.textContent = `¡Perfecto, ${nombreEstudiante}! 🏆`;
-      feedbackText.textContent = `¡Impresionante! Completaste los ${aciertos} de 4 ejercicios de forma correcta. Tienes un dominio excelente de las rectas numéricas.`;
+      feedbackText.textContent = `¡Impresionante! Descubriste los números correctos contando hacia la izquierda perfectamente. ¡Eres un maestro de la recta numérica!`;
       
       scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200";
       scoreBadge.textContent = `Nota: ${notaFinal}/10 (${aciertos}/4 aciertos)`;
@@ -305,8 +311,8 @@ import dibujoSuccess from '../assets/torogozlearned.png';
 
       feedbackCard.className = "bg-amber-50/80 border-amber-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
       feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-amber-800";
-      feedbackTitle.textContent = "¡Buen esfuerzo!";
-      feedbackText.textContent = "¡Continúa practicando en casa! No te desanimes, sigue aprendiendo sobre las rectas numéricas y podrás mejorar en los siguientes ejercicios.";
+      feedbackTitle.textContent = "¡Buen intento!";
+      feedbackText.textContent = "Recuerda que al movernos hacia la izquierda en la recta, los números disminuyen de 1 en 1 (restamos uno). ¡Sigue practicando para lograr el puntaje perfecto!";
       
       scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 border border-amber-200";
       scoreBadge.textContent = `Nota: ${notaFinal}/10 (${aciertos}/4 aciertos)`;
