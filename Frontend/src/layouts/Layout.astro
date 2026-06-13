@@ -15,7 +15,7 @@ import '../css/main.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
-    <title>{title} | Aula Calma</title>
+    <title>{title} | Rectas Numericas</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,13 @@ import '../css/main.css';
       <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
         
         <a href="/" class="font-bold text-slate-800 tracking-tight flex items-center gap-2 text-base transition-transform active:scale-95">
-          <span class="text-xl bg-sky-50 p-1.5 rounded-xl border border-sky-100/80">🍃</span> 
-          <span>Aula<span class="text-sky-600 font-medium">Calma</span></span>
+          <span class="text-xl bg-sky-50 p-1.5 rounded-xl border border-sky-100/80">📊</span> 
+          <span>Rectas<span class="text-sky-600 font-medium">Numericas</span></span>
         </a>
         
         <div id="student-badge" class="opacity-0 transition-opacity duration-300 flex items-center gap-2.5 bg-sky-50 border border-sky-100 px-3 py-1 rounded-full">
           <div class="w-6 h-6 rounded-full bg-sky-500 flex items-center justify-center text-xs shadow-sm select-none">
-            👋
+            👤
           </div>
           <span id="student-name-text" class="text-xs font-bold text-sky-800 tracking-wide"></span>
         </div>
@@ -129,7 +129,7 @@ import '../css/main.css';
       }
 
           actualizarInterfazNombre(nombre);
-          window.location.href = '/first-content';
+          window.location.href = '/first_content';
           modal.classList.add('opacity-0');
           modalContent.classList.add('scale-95');
           setTimeout(() => {

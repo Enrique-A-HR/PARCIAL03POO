@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import '../css/main.css';
+import dibujoPedagogico from '../assets/focaalegre.png';
+import dibujoSuccess from '../assets/torogozlearned.png';
+---
+
+<Layout title="Práctica 4.4: Rectas numéricas que disminuyen">
+  <div class="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm space-y-8">
+    
+    <header class="border-b border-slate-100 pb-4 flex justify-between items-center flex-wrap gap-4">
+      <div class="space-y-1">
+        <h1 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+          <span class="bg-sky-100 text-sky-700 text-xs px-2.5 py-1 rounded-md font-mono">Práctica Escrita</span>
+          ¡A practicar, <span id="student-display-name" class="text-sky-600">estudiante</span>! ✨
+        </h1>
+        <p class="text-slate-500 text-xs">Completa el número que falta escribiéndolo con tu teclado. ¡Cuidado, los números disminuyen!</p>
+      </div>
+      <div class="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono px-3 py-1 rounded-lg">
+        Ejercicios: 3 / 3
+      </div>
+    </header>
+
+    <form id="practice-form" class="space-y-8" onsubmit="return false;">
+      <div class="space-y-3">
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 1</label>
+        <p class="text-slate-600 text-sm">Escribe el número que falta en la recta (disminuye de 10 en 10):</p>
+        
+        <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 overflow-x-auto">
+          <div class="flex justify-center items-center py-2">
+            <div class="flex items-center gap-6 border-b-2 border-slate-300 pb-2">
+              <input 
+                type="number" 
+                data-correct="560" 
+                required
+                placeholder="?" 
+                class="exercise-input w-16 h-9 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-sm focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              />
+              <span class="font-mono font-bold text-slate-400">570</span>
+              <span class="font-mono font-bold text-slate-400">580</span>
+              <span class="font-mono font-bold text-slate-400">590</span>
+              <span class="font-mono font-bold text-slate-400">600</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 2</label>
+        <p class="text-slate-600 text-sm">Descubre el número que falta contando hacia la izquierda de 5 en 5:</p>
+        
+        <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 overflow-x-auto">
+          <div class="flex justify-center items-center py-2">
+            <div class="flex items-center gap-6 border-b-2 border-slate-300 pb-2">
+              <input 
+                type="number" 
+                data-correct="115" 
+                required
+                placeholder="?" 
+                class="exercise-input w-16 h-9 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-sm focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              />
+              <span class="font-mono font-bold text-slate-400">120</span>
+              <span class="font-mono font-bold text-slate-400">125</span>
+              <span class="font-mono font-bold text-slate-400">130</span>
+              <span class="font-mono font-bold text-slate-400">135</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <label class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Ejercicio 3 (Reto Especial)</label>
+        <p class="text-slate-600 text-sm">¿Qué número va al inicio si la secuencia disminuye de 10 en 10 hacia la izquierda?</p>
+        
+        <div class="bg-slate-50 border border-slate-100 rounded-xl p-5 overflow-x-auto">
+          <div class="flex justify-center items-center py-2">
+            <div class="flex items-center gap-6 border-b-2 border-slate-300 pb-2">
+              <input 
+                type="number" 
+                data-correct="390" 
+                required
+                placeholder="?" 
+                class="exercise-input w-16 h-9 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-sm focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition-all [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              />
+              <span class="font-mono font-bold text-slate-400">400</span>
+              <span class="font-mono font-bold text-slate-400">410</span>
+              <span class="font-mono font-bold text-slate-400">420</span>
+              <span class="font-mono font-bold text-slate-400">430</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center pt-2">
+        <button 
+          type="submit" 
+          id="btn-submit"
+          class="inline-flex items-center gap-2 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+        >
+          🚀 Calificar ejercicios
+        </button>
+      </div>
+    </form>
+    <div id="feedback-box" class="hidden opacity-0 transform translate-y-2 transition-all duration-500">
+      <section id="feedback-card" class="rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border">
+    
+        <div class="flex justify-center shrink-0 relative w-20 h-20">
+          <Image id="img-think" src={dibujoPedagogico} alt="Mascota pensando" class="absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-200" />
+          <Image id="img-success" src={dibujoSuccess} alt="Mascota feliz" class="absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-200 opacity-0" />
+        </div>
+
+        <div class="flex-1 space-y-2 text-center sm:text-left">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <h4 id="feedback-title" class="text-sm font-bold uppercase tracking-wider"></h4>
+            <span id="score-badge" class="inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md"></span>
+          </div>
+          <p id="feedback-text" class="text-slate-600 text-sm leading-relaxed"></p>
+        </div>
+      </section>
+
+      <div class="text-center pt-8">
+        <a href="/take_a_break" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white text-sm font-bold px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+          Terminar y continuar
+          <span>→</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('practice-form') as HTMLFormElement;
+  const inputs = document.querySelectorAll('.exercise-input') as NodeListOf<HTMLInputElement>;
+  const btnSubmit = document.getElementById('btn-submit') as HTMLButtonElement;
+  
+  const feedbackBox = document.getElementById('feedback-box');
+  const feedbackCard = document.getElementById('feedback-card');
+  const feedbackTitle = document.getElementById('feedback-title');
+  const feedbackText = document.getElementById('feedback-text');
+  const scoreBadge = document.getElementById('score-badge');
+  
+  const imgThink = document.getElementById('img-think');
+  const imgSuccess = document.getElementById('img-success');
+  const displayNameElem = document.getElementById('student-display-name');
+
+  const nombreEstudiante = sessionStorage.getItem('student_name') || 'estudiante';
+  if (displayNameElem) {
+    displayNameElem.textContent = nombreEstudiante;
+  }
+
+  async function registrarCalificacion(nota: number) {
+    try {
+      await fetch('http://localhost:3000/api/grades/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: nombreEstudiante,
+          topic: '4.4 Práctica Rectas Disminuyen',
+          score: nota
+        })
+      });
+    } catch (error) {
+      console.error('Error al registrar la nota en el servidor:', error);
+    }
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!feedbackBox || !feedbackCard || !feedbackTitle || !feedbackText || !scoreBadge) return;
+
+    let aciertos = 0;
+    const totalEjercicios = inputs.length;
+
+    inputs.forEach(input => {
+      input.disabled = true; 
+      const valorUsuario = parseInt(input.value.trim());
+      const valorCorrecto = parseInt(input.getAttribute('data-correct')!);
+
+      if (valorUsuario === valorCorrecto) {
+        aciertos++;
+        input.className = "exercise-input w-16 h-9 border-2 border-emerald-500 bg-emerald-50 rounded-lg text-center font-mono font-bold text-emerald-700 text-sm transition-all shadow-sm";
+      } else {
+        input.className = "exercise-input w-16 h-9 border-2 border-rose-400 bg-rose-50 rounded-lg text-center font-mono font-bold text-rose-700 text-sm transition-all shadow-sm animate-shake";
+        input.title = `La respuesta correcta era ${valorCorrecto}`;
+      }
+    });
+
+    const notaFinal = Math.round((aciertos / totalEjercicios) * 10);
+
+    feedbackBox.classList.remove('hidden');
+    setTimeout(() => {
+      feedbackBox.classList.remove('opacity-0', 'translate-y-2');
+      feedbackBox.classList.add('opacity-100', 'translate-y-0');
+    }, 10);
+
+    btnSubmit.classList.add('hidden'); 
+
+    if (notaFinal === 10) {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.add('opacity-0');
+        imgSuccess.classList.replace('opacity-0', 'opacity-100');
+      }
+      feedbackCard.className = "bg-emerald-50/70 border-emerald-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-emerald-800";
+      feedbackTitle.textContent = `¡Perfecto, ${nombreEstudiante}! 🏅`;
+      feedbackText.textContent = "Has dominado las rectas numéricas que disminuyen hacia la izquierda de 10 en 10 y de 5 en 5. ¡Sigue así!";
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200";
+    } else {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.replace('opacity-0', 'opacity-100');
+        imgSuccess.classList.add('opacity-0');
+      }
+      feedbackCard.className = "bg-amber-50/80 border-amber-100 rounded-xl p-6 flex flex-col sm:flex-row gap-5 items-center sm:items-start border";
+      feedbackTitle.className = "text-sm font-bold uppercase tracking-wider text-amber-800";
+      feedbackTitle.textContent = "¡Buen intento!";
+      feedbackText.textContent = "Recuerda que al ir hacia la izquierda debemos restar la escala (quitar 10 o quitar 5). Revisa las respuestas marcadas en rojo.";
+      scoreBadge.className = "inline-block text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 border border-amber-200";
+    }
+
+    scoreBadge.textContent = `Nota: ${notaFinal}/10`;
+
+    registrarCalificacion(notaFinal);
+
+    feedbackBox.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  });
+</script>

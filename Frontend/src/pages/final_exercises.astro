@@ -1,0 +1,506 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import "../css/main.css";
+import dibujoPedagogico from "../assets/focaalegre.png";
+import dibujoSuccess from "../assets/torogozlearned.png";
+---
+
+<Layout title="4.5 Practiquemos lo aprendido - Evaluación Final">
+  <div
+    class="w-full max-w-4xl bg-white border border-slate-200 rounded-2xl p-6 md:p-10 shadow-sm space-y-10"
+  >
+    <header
+      class="border-b border-slate-100 pb-4 flex justify-between items-center flex-wrap gap-4"
+    >
+      <div class="space-y-1">
+        <h2 class="text-xs font-bold text-purple-600 uppercase tracking-widest">
+          Sección 4.5
+        </h2>
+        <h1 class="text-2xl font-bold text-slate-800">
+          Practiquemos lo aprendido
+        </h1>
+        <p class="text-slate-500 text-xs">
+          Completa los desafíos finales de la unidad usando tu teclado.
+        </p>
+      </div>
+      <div
+        class="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-mono px-3 py-1.5 rounded-lg"
+      >
+        Progreso: <span id="progress-counter">0</span> / 7 respuestas
+      </div>
+    </header>
+
+    <form id="final-exam-form" onsubmit="return false;" class="space-y-12">
+      <section class="space-y-6">
+        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+          <span
+            class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-mono text-xs text-slate-600"
+            >1</span
+          >
+          Escribe el número que falta en cada recta numérica.
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4"
+          >
+            <span class="text-xs font-bold text-purple-600 font-mono">a.</span>
+            <div class="relative pt-4 pb-2 px-2">
+              <div class="absolute top-7 left-0 right-0 h-0.5 bg-slate-400">
+              </div>
+              <div class="flex justify-between items-start relative z-10">
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">374</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">375</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">376</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">377</span>
+                </div>
+                <div class="flex flex-col items-center -mt-3">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                  <input
+                    type="number"
+                    data-correct="378"
+                    required
+                    placeholder="?"
+                    class="exam-input w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-xs focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4"
+          >
+            <span class="text-xs font-bold text-purple-600 font-mono">b.</span>
+            <div class="relative pt-4 pb-2 px-2">
+              <div class="absolute top-7 left-0 right-0 h-0.5 bg-slate-400">
+              </div>
+              <div class="flex justify-between items-start relative z-10">
+                <div class="flex flex-col items-center -mt-3">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                  <input
+                    type="number"
+                    data-correct="520"
+                    required
+                    placeholder="?"
+                    class="exam-input w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-xs focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">521</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">522</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">523</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">524</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4"
+          >
+            <span class="text-xs font-bold text-purple-600 font-mono">c.</span>
+            <div class="relative pt-4 pb-2 px-2">
+              <div class="absolute top-7 left-0 right-0 h-0.5 bg-slate-400">
+              </div>
+              <div class="flex justify-between items-start relative z-10">
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">440</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">450</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">460</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">470</span>
+                </div>
+                <div class="flex flex-col items-center -mt-3">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                  <input
+                    type="number"
+                    data-correct="480"
+                    required
+                    placeholder="?"
+                    class="exam-input w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-xs focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4"
+          >
+            <span class="text-xs font-bold text-purple-600 font-mono">d.</span>
+            <div class="relative pt-4 pb-2 px-2">
+              <div class="absolute top-7 left-0 right-0 h-0.5 bg-slate-400">
+              </div>
+              <div class="flex justify-between items-start relative z-10">
+                <div class="flex flex-col items-center -mt-3">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                  <input
+                    type="number"
+                    data-correct="680"
+                    required
+                    placeholder="?"
+                    class="exam-input w-14 h-8 border-2 border-dashed border-sky-300 rounded-lg bg-white text-center font-mono font-bold text-sky-600 text-xs focus:outline-none focus:border-sky-500"
+                  />
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">690</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">700</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">710</span>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-0.5 h-3 bg-slate-500 mb-2"></div><span
+                    class="font-mono text-xs text-slate-600">720</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="space-y-6">
+        <h3 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+          <span
+            class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-mono text-xs text-slate-600"
+            >2</span
+          >
+          Completa la secuencia numérica contando de 5 en 5.
+        </h3>
+
+        <div
+          class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4"
+        >
+          <span class="text-xs font-bold text-purple-600 font-mono"
+            >e. Desafío Final</span
+          >
+          <div class="relative pt-4 pb-2 px-1 overflow-x-auto">
+            <div
+              class="absolute top-7 left-0 right-0 h-0.5 bg-slate-400 min-w-[500px]"
+            >
+            </div>
+            <div
+              class="flex justify-between items-start relative z-10 min-w-[500px] px-2"
+            >
+              <div class="flex flex-col items-center">
+                <div class="w-0.5 h-3 bg-slate-500 mb-2"></div>
+                <span class="font-mono text-xs text-slate-600">150</span>
+              </div>
+
+              <div class="flex flex-col items-center -mt-3">
+                <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                <input
+                  type="number"
+                  data-correct="155"
+                  required
+                  placeholder="?"
+                  class="exam-input w-14 h-8 border-2 border-dashed border-purple-300 rounded-lg bg-white text-center font-mono font-bold text-purple-600 text-xs focus:outline-none focus:border-purple-500"
+                />
+              </div>
+
+              <div class="flex flex-col items-center">
+                <div class="w-0.5 h-3 bg-slate-500 mb-2"></div>
+                <span class="font-mono text-xs text-slate-600">160</span>
+              </div>
+
+              <div class="flex flex-col items-center -mt-3">
+                <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                <input
+                  type="number"
+                  data-correct="165"
+                  required
+                  placeholder="?"
+                  class="exam-input w-14 h-8 border-2 border-dashed border-purple-300 rounded-lg bg-white text-center font-mono font-bold text-purple-600 text-xs focus:outline-none focus:border-purple-500"
+                />
+              </div>
+
+              <div class="flex flex-col items-center">
+                <div class="w-0.5 h-3 bg-slate-500 mb-2"></div>
+                <span class="font-mono text-xs text-slate-600">170</span>
+              </div>
+
+              <div class="flex flex-col items-center -mt-3">
+                <div class="w-0.5 h-3 bg-slate-500 mb-1"></div>
+                <input
+                  type="number"
+                  data-correct="175"
+                  required
+                  placeholder="?"
+                  class="exam-input w-14 h-8 border-2 border-dashed border-purple-300 rounded-lg bg-white text-center font-mono font-bold text-purple-600 text-xs focus:outline-none focus:border-purple-500"
+                />
+              </div>
+
+              <div class="flex flex-col items-center">
+                <div class="w-0.5 h-3 bg-slate-500 mb-2"></div>
+                <span class="font-mono text-xs text-slate-600">180</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="text-center pt-4">
+        <button
+          type="submit"
+          id="btn-submit-exam"
+          class="inline-flex items-center gap-2 bg-purple-50 hover:bg-purple-100 border border-purple-200 text-purple-700 text-xs font-bold px-8 py-3 rounded-xl transition-all shadow-sm active:scale-95 cursor-pointer uppercase tracking-wider"
+        >
+          Finalizar aprendizaje
+        </button>
+      </div>
+    </form>
+
+    <div
+      id="exam-modal"
+      class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-all duration-300"
+    >
+      <div
+        id="modal-container"
+        class="bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border border-slate-200 transform scale-95 transition-all duration-300 flex flex-col items-center text-center space-y-4"
+      >
+        <div class="relative w-16 h-16 shrink-0">
+          <Image
+            id="exam-img-think"
+            src={dibujoPedagogico}
+            alt="Mascota pensando"
+            class="absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-200"
+          />
+          <Image
+            id="exam-img-success"
+            src={dibujoSuccess}
+            alt="Mascota feliz"
+            class="absolute inset-0 w-full h-full object-contain select-none transition-opacity duration-200 opacity-0"
+          />
+        </div>
+
+        <div class="space-y-1.5 w-full">
+          <div class="flex flex-col items-center gap-1.5">
+            <h4
+              id="exam-feedback-title"
+              class="text-base font-bold uppercase tracking-wider"
+            >
+            </h4>
+            <span
+              id="exam-score-badge"
+              class="inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded-md"
+            ></span>
+          </div>
+          <p
+            id="exam-feedback-text"
+            class="text-slate-600 text-xs md:text-sm leading-relaxed px-2"
+          >
+          </p>
+        </div>
+
+        <div
+          class="w-full pt-3 border-t border-dashed border-slate-200 flex flex-col items-center gap-1"
+        >
+          <span
+            class="text-[10px] uppercase tracking-wider font-bold text-slate-400"
+            >Historial Global del Alumno</span
+          >
+          <span
+            id="exam-final-average-badge"
+            class="text-xs font-bold font-mono px-3 py-1 rounded bg-purple-50 text-purple-700 border border-purple-100"
+            >Calculando promedio...</span
+          >
+        </div>
+
+        <div class="w-full pt-2">
+          <a
+            href="/"
+            class="inline-flex items-center justify-center w-full bg-slate-800 text-white hover:bg-slate-900 text-xs font-bold py-3 rounded-xl transition-all shadow-md active:scale-95"
+          >
+            Terminar y volver al inicio
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const examForm = document.getElementById(
+    "final-exam-form",
+  ) as HTMLFormElement;
+  const examInputs = document.querySelectorAll(
+    ".exam-input",
+  ) as NodeListOf<HTMLInputElement>;
+  const progressCounter = document.getElementById("progress-counter");
+  const btnSubmitExam = document.getElementById(
+    "btn-submit-exam",
+  ) as HTMLButtonElement;
+
+  const examModal = document.getElementById("exam-modal");
+  const modalContainer = document.getElementById("modal-container");
+  const feedbackTitle = document.getElementById("exam-feedback-title");
+  const feedbackText = document.getElementById("exam-feedback-text");
+  const scoreBadge = document.getElementById("exam-score-badge");
+  const finalAverageBadge = document.getElementById("exam-final-average-badge");
+
+  const imgThink = document.getElementById("exam-img-think");
+  const imgSuccess = document.getElementById("exam-img-success");
+
+  const nombreEstudiante =
+    sessionStorage.getItem("student_name") || "estudiante";
+
+  examInputs.forEach((input) => {
+    input.addEventListener("input", () => {
+      let respondidos = 0;
+      examInputs.forEach((i) => {
+        if (i.value.trim() !== "") respondidos++;
+      });
+      if (progressCounter) progressCounter.textContent = respondidos.toString();
+    });
+  });
+
+  async function procesarNotaYCalcularPromedio(notaActual: number) {
+    try {
+      await fetch("http://localhost:3000/api/grades/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: nombreEstudiante,
+          topic: "4.5 Practiquemos lo aprendido - Final",
+          score: notaActual,
+        }),
+      });
+
+      const response = await fetch(
+        `http://localhost:3000/api/grades/global/${nombreEstudiante}`,
+      );
+      if (!response.ok)
+        throw new Error("No se pudo obtener el historial global");
+
+      const gradesData = await response.json();
+      if (gradesData && typeof gradesData.globalGrade !== "undefined") {
+        const promedio = Number(gradesData.globalGrade);
+        if (finalAverageBadge) {
+          finalAverageBadge.textContent = `Promedio Final de la Unidad: ${promedio.toFixed(1)} / 10`;
+        }
+      } else {
+        if (finalAverageBadge)
+          finalAverageBadge.textContent = `Promedio Final: ${notaActual.toFixed(1)} / 10`;
+      }
+    } catch (error) {
+      console.error("Error al conectar con el servidor:", error);
+      if (finalAverageBadge) {
+        finalAverageBadge.textContent = `Nota actual: ${notaActual}/10`;
+      }
+    }
+  }
+
+  examForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (
+      !examModal ||
+      !modalContainer ||
+      !feedbackTitle ||
+      !feedbackText ||
+      !scoreBadge
+    )
+      return;
+
+    let aciertos = 0;
+    const total = examInputs.length;
+
+    examInputs.forEach((input) => {
+      input.disabled = true;
+      const userVal = parseInt(input.value.trim());
+      const correctVal = parseInt(input.getAttribute("data-correct")!);
+
+      if (userVal === correctVal) {
+        aciertos++;
+        input.className =
+          "exam-input w-14 h-8 border-2 border-emerald-500 bg-emerald-50 rounded-lg text-center font-mono font-bold text-emerald-700 text-xs transition-all";
+      } else {
+        input.className =
+          "exam-input w-14 h-8 border-2 border-rose-400 bg-rose-50 rounded-lg text-center font-mono font-bold text-rose-700 text-xs transition-all";
+        input.title = `Era ${correctVal}`;
+      }
+    });
+
+    const notaFinal = Math.round((aciertos / total) * 10);
+    localStorage.clear();
+    sessionStorage.clear();
+
+    if (notaFinal >= 8) {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.add("opacity-0");
+        imgSuccess.classList.replace("opacity-0", "opacity-100");
+      }
+      modalContainer.className =
+        "bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border-2 border-emerald-500 transform scale-95 transition-all duration-300 flex flex-col items-center text-center space-y-4";
+      feedbackTitle.className =
+        "text-base font-bold uppercase tracking-wider text-emerald-800";
+      feedbackTitle.textContent = `¡Excelente, ${nombreEstudiante}! 🎉`;
+      feedbackText.textContent =
+        "Has culminado la unidad satisfactoriamente con un desempeño sobresaliente.";
+      scoreBadge.className =
+        "inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-200";
+    } else {
+      if (imgThink && imgSuccess) {
+        imgThink.classList.replace("opacity-0", "opacity-100");
+        imgSuccess.classList.add("opacity-0");
+      }
+      modalContainer.className =
+        "bg-white rounded-2xl max-w-md w-full p-6 shadow-xl border-2 border-amber-500 transform scale-95 transition-all duration-300 flex flex-col items-center text-center space-y-4";
+      feedbackTitle.className =
+        "text-base font-bold uppercase tracking-wider text-amber-800";
+      feedbackTitle.textContent = "¡Práctica finalizada!";
+      feedbackText.textContent =
+        "Revisa los recuadros marcados en rojo detrás del modal para evaluar los puntos a mejorar.";
+      scoreBadge.className =
+        "inline-block text-xs font-mono font-bold px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800 border border-amber-200";
+    }
+
+    scoreBadge.textContent = `Nota: ${notaFinal}/10`;
+    procesarNotaYCalcularPromedio(notaFinal);
+
+    examModal.classList.remove("hidden");
+    setTimeout(() => {
+      examModal.classList.remove("opacity-0");
+      modalContainer.classList.remove("scale-95");
+      modalContainer.classList.add("scale-100");
+    }, 10);
+
+    btnSubmitExam.classList.add("hidden");
+  });
+</script>

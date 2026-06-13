@@ -3,27 +3,24 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 
 import '../css/main.css';
-// Imagen optimizada para la sección Comprende
-import ImagenComprende from '../assets/torogozlearned.png'; 
+import ImagenComprende from '../assets/torogozthink.png'; 
+import ImagenQuePasaria from '../assets/torogozquestion.png';
 ---
 
 <Layout title="4.4 Ubiquemos números que disminuyen en la recta">
   <div class="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl p-6 md:p-8 shadow-sm space-y-8">
     
-    <!-- Encabezado de Lección -->
     <header class="space-y-1">
       <h2 class="text-xs font-bold text-sky-600 uppercase tracking-widest">Lección 4.4</h2>
       <h1 class="text-2xl font-bold text-slate-800">Ubiquemos números que disminuyen</h1>
     </header>
 
-    <!-- Sección Comprende (Teoría con imagen a la izquierda) -->
     <section class="bg-sky-50 border border-sky-100 rounded-xl p-6">
       <h3 class="text-sm font-bold text-sky-800 uppercase tracking-wide mb-3">Comprende</h3>
       
       <div class="flex flex-col md:flex-row gap-6 items-center">
-        <!-- Contenedor Imagen -->
         <div class="shrink-0">
-          <div class="w-28 h-28 bg-white border border-sky-200 rounded-lg shadow-sm flex items-center justify-center p-2">
+          <div class="w-34 h-34 flex items-center justify-center p-2">
             <Image 
               src={ImagenComprende} 
               alt="Mascota guiando la lección" 
@@ -31,15 +28,12 @@ import ImagenComprende from '../assets/torogozlearned.png';
             />
           </div>
         </div>
-
-        <!-- Contenedor Texto -->
         <p class="text-sky-900 leading-relaxed flex-1">
-          Al ubicar números en la recta, los números también pueden **disminuir de 10 en 10 hacia la izquierda**. ¡Presta mucha atención a la dirección de los números para descubrir cuál falta!
+          Al ubicar números en la recta, los números también pueden <a class="font-extrabold">disminuir de 10 en 10 hacia la izquierda</a>. ¡Presta mucha atención a la dirección de los números para descubrir cuál falta!
         </p>
       </div>
     </section>
 
-    <!-- Analiza -->
     <section class="space-y-4">
       <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wide">Analiza</h3>
       <p class="text-slate-600">Escribe el número que falta en la recta numérica:</p>
@@ -57,11 +51,10 @@ import ImagenComprende from '../assets/torogozlearned.png';
       </div>
     </section>
 
-    <!-- Solución -->
     <section class="space-y-4">
       <h3 class="text-sm font-bold text-amber-600 uppercase tracking-wide">Solución</h3>
       <div class="bg-amber-50/50 border border-amber-100 rounded-xl p-6 space-y-3">
-        <p class="text-slate-700">Cuento los números de derecha a izquierda y noto que **disminuyen de 10 en 10**:</p>
+        <p class="text-slate-700">Cuento los números de derecha a izquierda y noto que <a class="font-extrabold">disminuyen de 10 en 10</a>:</p>
         <div class="flex justify-center items-center gap-4 py-2">
           <span class="font-mono font-bold text-slate-500">270</span>
           <span class="text-amber-500 font-bold font-mono">- 10</span>
@@ -71,11 +64,19 @@ import ImagenComprende from '../assets/torogozlearned.png';
       </div>
     </section>
 
-    <!-- Sección Especial: ¿Qué pasaría? -->
+
     <section class="border-2 border-purple-100 bg-purple-50/30 rounded-xl p-6 space-y-4">
-      <header class="flex items-center gap-2 text-purple-700">
-        <span class="bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-md font-bold font-mono">¿Qué pasaría?</span>
-        <p class="text-sm font-medium">¿Qué número falta si contamos hacia la izquierda de **5 en 5**?</p>
+      <header class="flex items-center gap-4 text-purple-700">
+        <Image 
+          src={ImagenQuePasaria} 
+          alt="Mascota Preguntándose" 
+          class="w-16 h-16 sm:w-20 sm:h-20 object-contain shrink-0" 
+        />
+
+        <div class="space-y-2">
+          <span class="inline-block bg-purple-100 text-purple-700 text-xs px-2.5 py-1 rounded-md font-bold font-mono">¿Qué pasaría?</span>
+          <p class="text-sm font-medium">¿Qué número falta si contamos hacia la izquierda de <a class="font-extrabold">5 en 5</a>?</p>
+        </div>
       </header>
       
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6 bg-white border border-purple-100/80 rounded-lg p-4">
@@ -89,9 +90,8 @@ import ImagenComprende from '../assets/torogozlearned.png';
       </div>
     </section>
 
-    <!-- Navegación Inferior -->
     <footer class="flex justify-between pt-4 border-t border-slate-100">
-      <a href="/practice-4-4" class="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
+      <a href="/ejercicios4.4" class="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95">
         Siguiente: Práctica →
       </a>
     </footer>

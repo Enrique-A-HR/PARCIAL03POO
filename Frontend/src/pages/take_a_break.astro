@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+import '../css/main.css';
+import PersonajeIzquierda from '../assets/focadescanso.png'; 
+import PersonajeDerecha from '../assets/focafeliz.png'; 
+---
+
+<Layout title="¡Momento de un descanso!">
+  <div class="w-full max-w-3xl bg-white border border-slate-200 rounded-2xl p-6 md:p-10 shadow-sm flex flex-col items-center justify-center relative min-h-[420px]">
+    
+    <div class="flex items-center justify-between gap-4 w-full my-auto px-2">
+      
+      <div class="shrink-0 w-24 sm:w-24 md:w-28 flex justify-center">
+        <Image 
+          src={PersonajeIzquierda} 
+          alt="Amigo animándote" 
+          class="w-full h-auto max-h-28 object-contain"
+        />
+      </div>
+
+      <div class="space-y-4 flex-1 text-center max-w-md mx-auto px-2">
+        <div class="inline-flex items-center justify-center bg-amber-100 text-amber-800 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider font-mono">
+          ☕ ¡Tiempo de un respiro!
+        </div>
+        
+        <h1 class="text-xl md:text-2xl font-extrabold text-slate-800 tracking-tight leading-tight">
+          ¡Has llegado a los ejercicios del final!
+        </h1>
+        
+        <p class="text-slate-600 text-xs md:text-sm leading-relaxed">
+          Tómate un descanso corto para estirarte y relajar la mente antes de comenzar. También puedes aprovechar este momento para practicar en casa con tu familia dibujando rectas numéricas sobre un papel. ¡Ya falta muy poco!
+        </p>
+      </div>
+
+      <div class="shrink-0 w-20 sm:w-24 md:w-28 flex justify-center">
+        <Image 
+          src={PersonajeDerecha} 
+          alt="Mascota celebrando tu avance" 
+          class="w-full h-auto max-h-28 object-contain"
+        />
+      </div>
+
+    </div>
+
+    <div class="pt-6 w-full border-t border-slate-100 mt-6 flex justify-center items-center">
+      <a 
+        href="/final_exercises" 
+        class="w-full bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 text-center"
+      >
+        ¡Estoy listo, continuar! →
+      </a>
+    </div>
+
+  </div>
+</Layout>
